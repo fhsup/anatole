@@ -374,11 +374,21 @@ Language Switch
   margin: 0 auto;
 }
 
-.sidebar .logo-title .title img {
+.sidebar .logo-title .title .profile {
   width: 127px;
   height: 127px;
   border-radius: 50%;
 }
+
+.sidebar .logo {
+    width: 127px;
+    height: 127px;
+    border-radius: 0%;
+    top: 40%;
+    margin: 0 auto;
+    text-align: center;
+}
+
 
 .sidebar .logo-title .title h3 {
   text-transform: uppercase;
@@ -1496,5 +1506,12 @@ a.btn {
   background-color: var(--bg-color);
   border: 1px solid var(--form-button-hover-border-color);
 }
+
+@media (prefers-color-scheme: dark){
+
+
+}
+
+
 
 /* (CONTACT) FORM END */

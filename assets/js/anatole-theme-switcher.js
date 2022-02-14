@@ -16,18 +16,18 @@ function init() {
   const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   if (theme === null) {
     if (userPrefersDark) {
-      setTheme('dark');
+        setTheme('dark');
     } else if (!document.documentElement.getAttribute('data-theme')) {
-      setTheme('light');
+        setTheme('light');
     } else {
       setTheme(document.documentElement.getAttribute('data-theme'));
     }
   } else {
     // load a stored theme
     if (theme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.setAttribute('data-theme', 'light');
     } else {
-      document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
     }
   }
 }
@@ -36,9 +36,12 @@ function init() {
 function switchTheme() {
   const theme = getTheme();
   if (theme === 'light') {
-    setTheme('dark');
+      setTheme('dark');
+      document.getElementById("main_logo").setAttribute('src', '/images/profile/human_robot_interaction_icon_white.svg');
   } else {
-    setTheme('light');
+      setTheme('light');
+      document.getElementById("main_logo").setAttribute('src', '/images/profile/human_robot_interaction_icon.svg');
+
   }
 }
 

@@ -1,3 +1,4 @@
+{{$path:= printf "%s-%s" $.Site.Params.profileLogo  "white"}}
 <div
   class="sidebar{{ with .Site.Params.doNotLoadAnimations }}
     .
@@ -10,7 +11,7 @@
   <div class="sidebar__content">
     <div class="logo-title">
       <div class="title">
-        <img src="{{ .Site.Params.profilePicture | relURL }}" alt="profile picture" />
+        <img class="profile" src="{{ .Site.Params.profilePicture | relURL }}" alt="profile picture" />
         <h3 title=""><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Params.Title }}</a></h3>
         <div class="description">
           <p>{{ replace .Site.Params.description "\n" "<br />" | safeHTML }}</p>
@@ -18,15 +19,21 @@
       </div>
     </div>
     <ul class="social-links">
+        <li>
+            <a href="{{.Site.Params.cvPath | relLangURL}}" rel="me" aria-label="Curriculum" title="Curriculum">
+                <i class="cv-icon" aria-hidden="true">CV</i>
+            </a>
+        </li>
       {{ range $item := .Site.Params.socialIcons }}
         <li>
           <a href="{{ $item.url }}" rel="me" aria-label="{{ $item.title }}" title="{{ $item.title }}">
-            <i class="{{ $item.icon }} fa-2x" aria-hidden="true"></i>
+            <i class="{{ $item.icon }} fa-3x" aria-hidden="true"></i>
           </a>
         </li>
 
       {{ end }}
     </ul>
+        <img class="logo" id="main_logo" src="/images/profile/human_robot_interaction_icon.svg" alt="logo picture" />
   </div>
   {{- partial "footer.html" (dict "context" . "footerClassModifier" "sidebar") -}}
 </div>
